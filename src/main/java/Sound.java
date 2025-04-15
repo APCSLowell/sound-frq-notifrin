@@ -41,7 +41,7 @@ int i = 0;
      i++;}
    int [] ian = new int[samples.length-1];
 
-   for (int x = 0; j < ian.length; x++){
+   for (int x = 0; x < ian.length; x++){
 ian[x] = samples[i+x];
    }
    samples = ian;
