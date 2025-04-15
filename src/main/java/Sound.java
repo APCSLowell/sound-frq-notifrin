@@ -14,19 +14,19 @@ public class Sound
    *  @return the number of values in this sound that this method changed
    */
  public int limitAmplitude(int limit) {
-int numChanged = 0;
- for (int i = 0; i < this.samples.length; i++) {
- if (this.samples[i] < -limit) {
- this.samples[i] = -limit;
- numChanged++;
+int count = 0;
+   for (int i = 0; i < samples.length; i++){
+     if (samples[i] > limit) {
+       samples[i] = limit;
+       count++;
+     }
+     if  (samples[i] < 0-limit){
+       samples[i] = 0-limit;
+       count++;
+     }
+   }
+   return count;
  }
- if (this.samples[i] > limit) {
- this.samples[i] = limit;
- numChanged++;
- }
- }
- return numChanged;
-} 
 
 
 
@@ -37,12 +37,13 @@ int numChanged = 0;
    */
  public void trimSilenceFromBeginning() {
 int i = 0;
- while (this.samples[i] == 0) {
- i++;
+   while(samples[i] == 0){
+     i++;}
+   int [] ian = new int[samples.length-1];
+
+   for (int x = 0; j < ian.length; x++){
+ian[x] = samples[i+x];
+   }
+   samples = ian;
  }
- int[] newSamples = new int[this.samples.length - i];
- for (int j = 0; j < newSamples.length; j++) {
- newSamples[j] = this.samples[j+i];
- }
- this.samples = newSamples;
 } 
